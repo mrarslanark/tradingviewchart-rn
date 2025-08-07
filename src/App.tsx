@@ -47,7 +47,7 @@ const ChartComponent: React.FC<ChartComponentProps> = ({ data, colors }) => {
     const newSeries = chart.addSeries(AreaSeries, {
       lineColor: colors.lineColor,
       topColor: colors.areaTopColor,
-      bottomColor: colors.areaBottomColor,
+      bottomColor: colors.areaBottomColor
     });
     newSeries.setData(data);
 
@@ -58,6 +58,18 @@ const ChartComponent: React.FC<ChartComponentProps> = ({ data, colors }) => {
       chart.remove();
     }
   }, [colors.areaBottomColor, colors.areaTopColor, colors.backgroundColor, colors.lineColor, colors.textColor, data]);
+
+  const onMessage = (message: MessageEvent<{ data: string }>) => {
+    console.log(message.data)
+  }
+
+  useEffect(() => {
+    window.addEventListener('message', onMessage);
+
+    return () => {
+      window.removeEventListener('message', onMessage)
+    }
+  }, []);
 
   return <div ref={chartContainerRef} />;
 }
@@ -74,6 +86,9 @@ const initialData: ChartComponentProps['data'] = [
   { time: '2018-12-29', value: 23.92 },
   { time: '2018-12-30', value: 22.68 },
   { time: '2018-12-31', value: 22.67 },
+  { time: '2019-01-01', value: 24.67 },
+  { time: '2019-12-02', value: 21.67 },
+  { time: '2019-12-03', value: 23.67 },
 ];
 
 function App() {
