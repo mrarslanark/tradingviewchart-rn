@@ -1,4 +1,4 @@
-import './App.css'
+
 import * as React from "react";
 import {useEffect, useRef} from "react";
 import {type AreaData, AreaSeries, ColorType, createChart, type Time, type WhitespaceData} from "lightweight-charts";
