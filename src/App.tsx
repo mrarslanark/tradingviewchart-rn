@@ -93,12 +93,12 @@ const initialData: ChartComponentProps['data'] = [
 
 function App() {
 
-  const color = '#df29ff'
+  const color = '#5d81e8'
 
   return <ChartComponent data={initialData} colors={{
     backgroundColor: 'black',
     lineColor: color,
-    textColor: 'red',
+    textColor: 'white',
     areaTopColor: '#2962FF',
     areaBottomColor: 'rgba(41, 98, 255, 0.28)',
   }} />;
