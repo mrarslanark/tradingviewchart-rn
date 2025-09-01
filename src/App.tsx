@@ -59,8 +59,8 @@ const ChartComponent: React.FC<ChartComponentProps> = ({ data, colors }) => {
     }
   }, [colors.areaBottomColor, colors.areaTopColor, colors.backgroundColor, colors.lineColor, colors.textColor, data]);
 
-  const onMessage = (message: MessageEvent<{ message: string }>) => {
-      console.log('Data received from React Native:', message);
+  const onMessage = (message: MessageEvent<{ data: string }>) => {
+    console.log(message.data.data)
   }
 
   useEffect(() => {
