@@ -80,11 +80,10 @@ const ChartComponent: React.FC<ChartComponentProps> = ({data, colors}) => {
 // ];
 
 function App() {
-    const [data] = useState<ChartComponentProps['data']>([]);
+    const [data, setData] = useState<ChartComponentProps['data']>([]);
 
     const onMessage = (message: MessageEvent<{ data: string }>) => {
-        console.log("Getting Data from React Native")
-        console.log(JSON.parse(message.data.data))
+        setData(JSON.parse(message.data.data));
     }
 
     useEffect(() => {
