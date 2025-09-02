@@ -83,6 +83,7 @@ function App() {
     const [data, setData] = useState<ChartComponentProps['data']>([]);
 
     const onMessage = (message: MessageEvent<{ data: string }>) => {
+        alert("Message received");
         setData(JSON.parse(message.data.data));
     }
 
